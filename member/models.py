@@ -25,6 +25,12 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
+    def get_fields(self):
+        return "user, mobile, adhaar, bank_name, bank_account, bank_ifsc, address, district, state, pincode, image"
+
+
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -80,6 +86,11 @@ class Member(models.Model):
     first_level=models.BooleanField(default=False, editable=False)
     second_level=models.BooleanField(default=False, editable=False)
     prize_win=models.BooleanField(default=False, editable=False)
+
+    def get_fields(self):
+        return "user, product, sponer, created, key_1,  key_2, key_3, key_4, first_level, second_level, prize_win"
+
+
 
 
     def save(self):

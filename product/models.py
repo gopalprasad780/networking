@@ -8,6 +8,11 @@ class Category(models.Model):
     amount=models.DecimalField("Participation Amount", decimal_places=2, max_digits=10)
     image=models.ImageField(upload_to="category", default="category/none/no_img.png")
 
+    def get_fields(self):
+        return "name, description, amount, image"
+
+
+
 
     def __str__(self):
         return self.name
@@ -20,4 +25,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_fields(self):
+        return "category, name, image"
+
 

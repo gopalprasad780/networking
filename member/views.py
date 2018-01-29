@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .forms import  AddForm
 from django.contrib.auth.models import User
 from .models import Member, Profile
 from product.models import Category, Product
-from django.utils.transaction import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
 
 def index(request):
@@ -12,6 +12,8 @@ def index(request):
 
 
 def add(request, member_id):
+    
+    
     if request.method == 'POST':
         form=AddForm(request.POST)
         if form.is_valid():
@@ -45,7 +47,20 @@ def add(request, member_id):
             return render(request, 'member/addform.html', {'form':form })
 
     else:
-        form=AddForm()
+        try:
+            member=Member.objects.get(user=member_id)
+        except Member.DoesNotExist:
+            raise Http404("The Member id {} doesnot exist, Please check!!".format(member_id))
+        product=member.product
+        group=product.category
+        key=request.GET.get('key',None)
+        data={
+                'sponser':member.user,
+                'group':group.id,
+                'pin':key,
+                }
+
+        form=AddForm(data)
         
         return render(request, 'member/addform.html', {'form':form }) 
 
