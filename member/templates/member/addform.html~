@@ -1,0 +1,64 @@
+<!doctype html>      
+<html>
+   <head>
+         
+           
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <title>Add Member form</title>
+  <style type="text/css">
+  .center_div{
+    margin: 0 auto;
+    width:80% /* value of your choice which suits your alignment */
+}
+  </style>
+   </head>
+   
+   <body>
+   <div class="container center_div"> 
+   <div class="row">    
+   <form method="post" novalidate>
+  {% csrf_token %}
+  
+  {% include 'member/bindex.html' with form=form %}
+   <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Terms and conditions</h3>
+            </div>
+
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, veniam numquam has te. No suas nonumes recusabo mea, est ut graeci definitiones. His ne melius vituperata scriptorem, cum paulo copiosae conclusionemque at. Facer inermis ius in, ad brute nominati referrentur vis. Dicat erant sit ex. Phaedrum imperdiet scribentur vix no, ad latine similique forensibus vel.</p>
+                <p>Dolore populo vivendum vis eu, mei quaestio liberavisse ex. Electram necessitatibus ut vel, quo at probatus oportere, molestie conclusionemque pri cu. Brute augue tincidunt vim id, ne munere fierent rationibus mei. Ut pro volutpat praesent qualisque, an iisque scripta intellegebat eam.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="agreeButton" data-dismiss="modal">Agree</button>
+                <button type="button" class="btn btn-default" id="disagreeButton" data-dismiss="modal">Disagree</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+   </div>
+   <script type="text/javascript" >
+     $('#agreeButton, #disagreeButton').on('click', function() {
+        var whichButton = $(this).attr('id');
+
+        $('#registrationForm')
+            .find('[name="agree"]')
+                .val(whichButton === 'agreeButton' ? 'yes' : 'no')
+                .end()
+            // Revalidate the field manually
+            .formValidation('revalidateField', 'agree');
+    });
+});
+</script>
+   </script>
+   </body>
+</html>
+

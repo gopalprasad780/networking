@@ -1,0 +1,172 @@
+<!Doctype html>
+<html>
+	<head>
+		<title> User add form </title>
+	</head>
+	<body>
+			
+ 
+    <form class="form-horizontal" action="" method="POST" >
+    
+<fieldset>
+{{ form.non_field_errors }}
+<!-- Form Name -->
+<legend>Add Member Form</legend>
+{% csrf_token %}
+<!-- Sponser input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Sponser">sponser</label>  
+  <div class="col-md-4">
+  <input id="Sponser" name="Sponser" placeholder="sponser id" class="form-control input-md" required="" type="text">
+  <span class="help-block">*contact your sponser</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="username">pin</label>  
+  <div class="col-md-4">
+  <input id="username" name="username" placeholder="Please enter the pin" class="form-control input-md" required="" type="text">
+  <span class="help-block">*contact your sponser</span>  
+  </div>
+</div>
+
+<!-- Button Drop Down -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="group_product">Group &amp; Product</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <input id="group_product" name="group_product" class="form-control" placeholder="select an item" required="" type="text">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          product
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+          <li><a href="#">A</a></li>
+          <li><a href="#">B</a></li>
+          <li><a href="#">C</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="first_name">First Name</label>  
+  <div class="col-md-4">
+  <input id="first_name" name="first_name" placeholder="first Name" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="last_name">Last Name</label>  
+  <div class="col-md-4">
+  <input id="last_name" name="last_name" placeholder="Last Name" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" placeholder="Email: abc@example.com" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="mobile">Mobile Number</label>  
+  <div class="col-md-4">
+  <input id="mobile" name="mobile" placeholder="999999999" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="adhaar">Adhaar Number</label>  
+  <div class="col-md-4">
+  <input id="adhaar" name="adhaar" placeholder="XXXX-XXXX-XXXX" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Bank Name</label>
+  <div class="col-md-5">
+    <select id="selectbasic" name="selectbasic" class="form-control">
+      <option value="1">Andhra Bank</option>
+      <option value="2">Bank of India</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="account">Bank account No</label>  
+  <div class="col-md-6">
+  <input id="account" name="account" placeholder="Enter your bank account number" class="form-control input-md" required="" type="text">
+  <span class="help-block">Number should match with your bank passbook</span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="bank_ifsc">IFSC code</label>  
+  <div class="col-md-4">
+  <input id="bank_ifsc" name="bank_ifsc" placeholder="IFSC code" class="form-control input-md" required="" type="text">
+  <span class="help-block">please check your passbook</span>  
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="address">Address</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="address" name="address">House No:
+Road:
+Vill/City:</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="district">District</label>  
+  <div class="col-md-4">
+  <input id="district" name="district" placeholder="District" class="form-control input-md" required="" type="text">
+  <span class="help-block"> </span>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="state">State</label>  
+  <div class="col-md-4">
+  <input id="state" name="state" placeholder="State" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="pincode">PIN Code</label>  
+  <div class="col-md-4">
+  <input id="pincode" name="pincode" placeholder="XXXXXX" class="form-control input-md" required="" type="text">
+    
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+			<input type='submit' value='add' />
+		</form>
+	</body>
+</html>

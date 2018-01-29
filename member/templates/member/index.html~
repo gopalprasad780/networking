@@ -1,0 +1,14 @@
+<!Doctype html>
+<html>
+	<head>
+		<title> Member Index Page </title>
+	</head>
+	<body>
+		<ul>
+			<li> <a href="{% url 'index' %}"> Index </a>
+			</li>
+			<li> <a href="{% url 'member-add' 1005 %}"> Add Member</a> </li>
+			<li> <a href="{% url 'member-detail' 1006 %}"> View Detail </a> </li>
+		</ul>
+	</body>
+</html>
