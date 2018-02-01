@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse, Http404
 from .forms import  AddForm
 from django.contrib.auth.models import User
@@ -6,7 +7,7 @@ from .models import Member, Profile
 from product.models import Category, Product
 from django.utils.translation import gettext_lazy as _
 # Create your views here.
-
+from django import forms
 def index(request):
     return render(request, 'member/index.html')
 
@@ -32,19 +33,35 @@ def add(request, member_id):
             address=form.cleaned_data['address']
             district=form.cleaned_data['district']
             state=form.cleaned_data['state']
-            pincode=form.cleaned_data['pin']
+            pincode=form.cleaned_data['pincode']
 
-            #validating sponser
-            try:
-                user=User.objects.get(username=sponser)
-            except User.DoesnotExist:
-                raise ValidationError(
-                        _('Sponser : %(value)s is not valid'),
-                        code='invalid',
-                        params={'value':sponser},)
-            return HttpResponse("The form is submitted successfully")
+            #Creating user
+            if User.objects.filter(username=pin).exists() is False:
+                user=User.objects.create(username=pin, email=email, first_name=first_name, last_name=last_name)
+            else:
+                raise forms.ValidationError(_("Pin already user"), code="invalid")
+
+
+            #editing user profile
+            user.profile.mobile=mobile_number
+            user.profile.adhaar=adhaar_number
+            user.profile.bank_name=bank_name
+            user.profile.bank_account=bank_account_no
+            user.profile.bank_ifsc=ifsc_code
+            user.profile.address=address
+            user.profile.district=district
+            user.profile.state=state
+            user.profile.pincode=pincode
+            user.save()
+
+            member=Member()
+            member.user=pin
+            member.sponser=sponser
+            member.product=product
+            member.save()
+            return redirect(reverse('index'))
         else:
-            return render(request, 'member/addform.html', {'form':form })
+            return render(request, 'member/addform.html', {'form':form }) 
 
     else:
         try:
@@ -60,7 +77,20 @@ def add(request, member_id):
                 'pin':key,
                 }
 
-        form=AddForm(data)
+        form=AddForm(initial=data)
+        #filtering product based on group
+        form.base_fields['product'].queryset=product.category.product_set.all()
+        #making fields readonly
+        if key in ['', None]:
+            for field in ['group','sponser']:
+                form.base_fields[field].widget.attrs['readonly']=True
+        else:
+            for field in ['group','pin','sponser']:
+                form.base_fields[field].widget.attrs['readonly']=True
+
+
+
+
         
         return render(request, 'member/addform.html', {'form':form }) 
 
@@ -68,3 +98,13 @@ def add(request, member_id):
 def  detail(request, member_id):
     return HttpResponse('This is detail of submitted user')
 
+
+def treeView(request, member_id):
+    try:
+        member=Member.objects.get(user=member_id)
+    except Member.DoesNotExist:
+        raise Http404("Member doesnot Exist")
+
+    return render(request, 'member/tree_view.html', {'member':member})
+        
+   

@@ -75,7 +75,7 @@ class AddForm(forms.Form):
 
     def clean_sponser(self):
         super().clean()
-        data = self.cleaned_data['sponser']
+        data=self.cleaned_data['sponser']
         try:
             user=User.objects.get(username=data)
 
@@ -126,6 +126,8 @@ class AddForm(forms.Form):
         if not data in [key_1, key_2, key_3, key_4]:
             raise forms.ValidationError(_("Incorrect Pin"" please ask your sponser"),code="invalid")
         return data
+
+
 
 
     
