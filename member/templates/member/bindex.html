@@ -15,8 +15,8 @@
 {% for field in form.visible_fields %}
   <div class="form-group row">
     <!--{{ field.label_tag }} -->
-    <label for="{{field.id_for_label}}" class="col-md-4  col-form-label">{{field.label}}</label>
-    <div class="col-md-8 ">
+    <label for="{{field.id_for_label}}" class="col-form-label">{{field.label}}</label>
+    <div class=" ">
     {% if form.is_bound %}
       {% if field.errors %}
         {% render_field field class="form-control is-invalid" %}

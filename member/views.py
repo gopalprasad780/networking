@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponse, Http404
 from .forms import  AddForm
@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your views here.
 from django import forms
 def index(request):
-    return render(request, 'member/index.html')
+    return render(request, 'member/base.html')
 
 
 def add(request, member_id):
@@ -59,7 +59,7 @@ def add(request, member_id):
             member.sponser=sponser
             member.product=product
             member.save()
-            return redirect(reverse('index'))
+            return redirect(reverse('member:index'))
         else:
             return render(request, 'member/addform.html', {'form':form }) 
 
@@ -95,16 +95,40 @@ def add(request, member_id):
         return render(request, 'member/addform.html', {'form':form }) 
 
 
-def  detail(request, member_id):
-    return HttpResponse('This is detail of submitted user')
+def edit(request, member_id):
+    member = get_object_or_404(User, pk=member_id)
+    return render(request, 'member/editform.html', {'member':'member'})
 
 
-def treeView(request, member_id):
+
+def tree(request, member_id):
     try:
         member=Member.objects.get(user=member_id)
     except Member.DoesNotExist:
         raise Http404("Member doesnot Exist")
+    tree=member_tree(member_id)
 
-    return render(request, 'member/tree_view.html', {'member':member})
+    return render(request, 'member/tree_view.html', {'tree':tree, 'member':member})
         
-   
+  
+
+
+#definition to check all the child node
+def member_tree(member_id=0):
+    tree={}
+    try:
+        member = Member.objects.get(user=member_id)
+        tree[member_id]=member.get_child()
+        for id in member.get_child():
+            try:
+                child=Member.objects.get(user=id)
+                tree[id]=child.get_child()
+            except Member.DoesNotExist():
+                tree[id]=[0,0,0,0]
+                pass
+        return tree
+    except :
+        return tree
+
+                
+

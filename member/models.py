@@ -114,11 +114,12 @@ class Member(models.Model):
     def __str__(self):
         return "User: %s  - Product: %s  - Sponser: %s -Key:[%s, %s, %s, %s]"%(self.user, self.product.name, self.sponser.username, self.key_1, self.key_2, self.key_3, self.key_4)
 
-    def get_child(self, member_id):
-        if self.user == member_id:
+    def get_child(self):
             return [self.key_1, self.key_2, self.key_3, self.key_4]
-        else:
-            return [0,0,0,0]
+
+
+
+        
 
 
 

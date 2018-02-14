@@ -1,0 +1,79 @@
+{% extends 'member/base.html' %}
+{% load static %}
+{% block stylesheets %}
+   {{block.super}}
+    <link rel="stylesheet" href="{% static 'member/css/hierarchy-view.css'%}">
+    <link rel="stylesheet" href="{% static 'member/css/main.css' %}">
+    {% endblock stylesheets %}
+    {% block content %} 
+    <!--Management Hierarchy-->
+    <section class="management-hierarchy">
+        <h1> 1. Management Hierarchy</h1>
+              
+
+        <div class="hv-container">
+            <div class="hv-wrapper">
+
+                <!-- Key component -->
+                <div class="hv-item">
+			{% if member %}
+
+                    <div class="hv-item-parent">
+                        <div class="person">
+                            <img src="img/male_icon.png" alt="">
+                            <p class="name">
+			    {{ member.user }} <b>/ </b>
+                            </p>
+                        </div>
+                    </div>
+		    {% endif %}
+
+		    {% if not tree.vars %}
+                      
+                    <div class="hv-item-children">
+
+			    {% for key in tree.keys %}
+                        <div class="hv-item-child">
+                            <!-- Key component -->
+                            <div class="hv-item">
+
+                                <div class="hv-item-parent">
+                                    <div class="person">
+                                        <img src="img/female_icon.png" alt="">
+                                        <p class="name">
+					{{ key }} <b>/  </b>
+                                        </p>
+                                    </div>
+                                </div>
+
+				
+                                <div class="hv-item-children">
+                                 {% for key_child in tree.key %}
+                                    <div class="hv-item-child">
+                                        <div class="person">
+                                            <img src="img/female_icon.png" alt="">
+                                            <p class="name">
+					    {{key_child }} <b>/  </b>
+                                            </p>
+                                        </div>
+                                    </div>
+
+				  {% endfor %}
+
+				</div>
+				{% endfor %} 
+
+
+                            </div>
+			    {% endif %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    {% endblock content %}

@@ -19,9 +19,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from . import views
+app_name='member'
 urlpatterns = [
         path('', views.index, name='index'),
-        path('<int:member_id>/add/', views.add, name='member-add'),
-    path('<int:member_id>/detail/', views.detail, name='member-detail'),
+        path('tree/<int:member_id>/', views.tree, name='tree'),
+        path('edit/<int:member_id>/', views.edit, name='edit'),
+
 ]
 

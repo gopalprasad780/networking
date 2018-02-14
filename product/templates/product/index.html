@@ -1,0 +1,151 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block banner %}
+    
+  <div class="jumbotron">
+  <h1 class="display-3">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+
+{% endblock banner %}
+
+<!-- for product -->
+{% block product %}
+{% if categories  %}
+
+<!-- Looping over category models -->
+    {% for category in categories %}
+        
+         <div class="row">
+		 <h3 class="breadcrumb"> {{category.name}} </h3>
+         {% for product in category.product_set.all %}
+            <div class="col-md-3">
+           <div class="card mb-3 box-shadow">
+		   <img class='card-img-top' src="{{ product.image.url}}" alt="{{product.name}}' height="320px" width="280px">
+
+              <div class="card-body">
+	           <h4 class="card-text"> {{product.name}}</h4>
+              </div>
+	      <div class="d-flex justify-content-between align-items-center">
+	        <div class="btn-group">
+		   <button type="button" class="btn btn-sm btn-outline-secondary"> View </button>
+		   <button type="button" class="btn btn-sm btn-outline-secondary"> Book </button>
+		</div>
+		<small class="text-muted"> 10 mins </small>
+	      </div>
+
+           </div>
+ </div>
+
+{% endfor %}
+</div> <!-- end of product row -->
+{% endfor %}
+
+
+{%else %}
+<div class="col-md-3">
+           <div class="card mb-3 box-shadow">
+              <h3 class="card-header">Card header</h3>
+              <div class="card-body">
+                 <h5 class="card-title">Special title treatment</h5>
+                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              </div>
+              <img style="height: 200px; width: 100%; display: block;"
+               src="" alt="Card image">
+              <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+   
+              <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+              </div>
+              <div class="card-footer text-muted">
+                      2 days ago
+              </div>
+           </div>
+ </div>
+ <div class="col-md-3">
+           <div class="card mb-3 box-shadow">
+              <h3 class="card-header">Card header</h3>
+              <div class="card-body">
+                 <h5 class="card-title">Special title treatment</h5>
+                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              </div>
+              <img style="height: 200px; width: 100%; display: block;"
+               src="" alt="Card image">
+              <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+   
+              <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+              </div>
+              <div class="card-footer text-muted">
+                      2 days ago
+              </div>
+           </div>
+ </div>
+ <div class="col-md-3">
+           <div class="card mb-3 box-shadow">
+              <h3 class="card-header">Card header</h3>
+              <div class="card-body">
+                 <h5 class="card-title">Special title treatment</h5>
+                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              </div>
+              <img style="height: 200px; width: 100%; display: block;"
+               src="" alt="Card image">
+              <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+   
+              <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+              </div>
+              <div class="card-footer text-muted">
+                      2 days ago
+              </div>
+           </div>
+ </div>
+ <div class="col-md-3">
+           <div class="card mb-3 box-shadow">
+              <h3 class="card-header">Card header</h3>
+              <div class="card-body">
+                 <h5 class="card-title">Special title treatment</h5>
+                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              </div>
+              <img style="height: 200px; width: 100%; display: block;"
+               src="" alt="Card image">
+              <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+   
+              <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+              </div>
+              <div class="card-footer text-muted">
+                      2 days ago
+              </div>
+           </div>
+ </div>
+  
+ {% endif %}
+ 
+
+{%endblock product %}
+
+
+
+
+
+
+ 
