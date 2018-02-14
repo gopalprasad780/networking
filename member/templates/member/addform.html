@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}  
+{% extends 'member/base.html' %}  
   {% block title %} Add Member form {% endblock title %}
   {% block style %}
   .center_div{
@@ -9,15 +9,23 @@
   {%endblock style%}
    
    {% block content %}
-   <div class="container center_div"> 
-   <div class="row">    
-   <form method="post" novalidate>
+
+   <div class="container" > 
+	   <div class="container">
+	   <h1 class="text-info text-center "> New Member Registration Form </h1>
+   <form method="post" class="form"  novalidate>
   {% csrf_token %}
   
   {% include 'member/bindex.html' with form=form %}
-    
+  <div class="row">
+	  <div class="col-md-5">
+	  </div>
+	  <div class="col-md-5">
   <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+  </div>
 </form>
-
+           </div>
+   </div>
 {%endblock content %}
  

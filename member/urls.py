@@ -24,6 +24,9 @@ urlpatterns = [
         path('', views.index, name='index'),
         path('tree/<int:member_id>/', views.tree, name='tree'),
         path('edit/<int:member_id>/', views.edit, name='edit'),
+        path('addmember/', views.addmember, name="addmember"),
+        path('add/<int:member_id>/', views.add, name='add'),
+
 
 ]
 

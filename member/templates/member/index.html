@@ -1,14 +1,17 @@
-<!Doctype html>
-<html>
-	<head>
-		<title> Member Index Page </title>
-	</head>
-	<body>
-		<ul>
-			<li> <a href="{% url 'index' %}"> Index </a>
-			</li>
-			<li> <a href="{% url 'member-add' 1005 %}"> Add Member</a> </li>
-			<li> <a href="{% url 'member-detail' 1006 %}"> View Detail </a> </li>
-		</ul>
-	</body>
-</html>
+{% extends 'member/base.html' %}
+
+{% block title %} My Profile {% endblock title %}
+
+{% block content %}
+  <div class="container">
+	  {% if user %}
+	  {{user}}
+	  <p> My product is : {{ user.member_set.first.product}}</p>
+
+	  {% else %}
+	  <p> This is profile page </p>
+	  {% endif %}
+
+  </div>
+
+{% endblock content %}

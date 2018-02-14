@@ -9,8 +9,15 @@ from django.utils.translation import gettext_lazy as _
 # Create your views here.
 from django import forms
 def index(request):
-    return render(request, 'member/base.html')
+    user=User.objects.get(username=10001)
+    return render(request, 'member/index.html', {'user':user})
 
+def addmember(request):
+    member=Member.objects.get(user=10002)
+    return render(request, 'member/addmember.html', {'member':member})
+
+
+# member/add/<parent_id>/?key=key
 
 def add(request, member_id):
     
@@ -116,19 +123,16 @@ def tree(request, member_id):
 #definition to check all the child node
 def member_tree(member_id=0):
     tree={}
-    try:
-        member = Member.objects.get(user=member_id)
-        tree[member_id]=member.get_child()
-        for id in member.get_child():
-            try:
-                child=Member.objects.get(user=id)
-                tree[id]=child.get_child()
-            except Member.DoesNotExist():
-                tree[id]=[0,0,0,0]
-                pass
+    if Member.objects.filter(user=member_id).exists():
+        member=Member.objects.get(user=member_id)
+        for child in member.get_child():
+            if Member.objects.filter(user=child).exists():
+                tree[child]=Member.objects.get(user=child).get_child()
+            else:
+                tree[child]=[0,0,0,0]
         return tree
-    except :
+    else:
+        tree[member_id]=[0,0,0,0]
         return tree
 
-                
 

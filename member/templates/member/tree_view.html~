@@ -12,51 +12,58 @@
 
 	    <div class="hv-container">
 		    <div class="hv-wrapper">
-                      
-			    <!-- Key Component -->
-			    <div class="hv-item">
-                                
+			    
+			    <!-- key component -->
+			    <div class="hv-tem">
+
 				    <div class="hv-item-parent">
-                                           <div class="person">
-						   <img src="" alt="Main User">
-						   <p class="name"> {{member.user}} </p>
-					   </div>
+					    <div class="person">
+						    <img src="{% static 'member/user/no_img.png' %}" alt="No User">
+						    <p class="name">
+						    {% if member %} {{member.user}}
+						    {% else %} No User {% endif %}
+						    </p>
+					    </div>
 				    </div>
 
+				    <!-- its children -->
 				    <div class="hv-item-children">
-					    {% for first_child, values in tree.items %}
+					    {% for child in tree %}
 					    <div class="hv-item-child">
+
+						    <!-- key component -->
 						    <div class="hv-item">
-							  
+
 							    <div class="hv-item-parent">
 								    <div class="person">
-									    <img src="" alt="First">
-									    <p class="name"> {{ first_child }} </p>
+									    <img src="" alt="img">
+									    <p class="name">
+									    {{ child }} </p>
 								    </div>
 							    </div>
-
+							    
+							    
 							    <div class="hv-item-children">
-								    {% for second_child in values %}
+
 								    <div class="hv-item-child">
 									    <div class="person">
-										    <img src="" alt="Second">
-										    <p class="name">{{ second_child }} </p>
-
+										    <img src="" alt="img">
+										    <p class="name">
+										    second node
+										    </p>
 									    </div>
 								    </div>
-								    {% endfor %}
+								    
+
 							    </div>
+							    {% endfor %}
 						    </div>
 					    </div>
-					    {% endfor %}
-					     
 				    </div>
 			    </div>
-
 		    </div>
 	    </div>
     </section>
-
 
 
     {% endblock content %}
