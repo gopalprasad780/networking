@@ -1,21 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .forms import  AddForm
 from django.contrib.auth.models import User
 from .models import Member, Profile
 from product.models import Category, Product
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.views import login
 # Create your views here.
 from django import forms
 def index(request):
-    user=User.objects.get(username=10001)
-    return render(request, 'member/index.html', {'user':user})
+    if request.user.is_authenticated:
+        user=request.user
+        member=Member.objects.get(user=user.username)
+    else:
+        return HttpResponseRedirect(reverse('member:login'))
+    
+    return render(request, 'member/index.html', {'user':user, 'member':member})
 
 def addmember(request):
     member=Member.objects.get(user=10002)
     return render(request, 'member/addmember.html', {'member':member})
 
+#member/login
+def custom_login(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('member:index'))
+    else:
+        return HttpResponseRedirect(reverse('member:redirectlogin'))
 
 # member/add/<parent_id>/?key=key
 
@@ -108,14 +120,14 @@ def edit(request, member_id):
 
 
 
-def tree(request, member_id):
-    try:
-        member=Member.objects.get(user=member_id)
-    except Member.DoesNotExist:
-        raise Http404("Member doesnot Exist")
-    tree=member_tree(member_id)
-
-    return render(request, 'member/tree_view.html', {'tree':tree, 'member':member})
+def tree(request):
+    if request.user.is_authenticated:
+        user=request.user
+        member=Member.objects.get(user=user.username)
+        tree=member_tree(member.user)
+        return render(request, 'member/tree_view.html', {'tree':tree, 'member':member, 'user':user})
+    else:
+        return HttpResponseRedirect(reverse('member:login'))
         
   
 

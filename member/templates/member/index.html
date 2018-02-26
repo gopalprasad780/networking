@@ -5,8 +5,79 @@
 {% block content %}
   <div class="container">
 	  {% if user %}
-	  {{user}}
-	  <p> My product is : {{ user.member_set.first.product}}</p>
+	  <div class="card border-primary bg-light mb-3" >
+		  <div class="card-header"> <h1 class="text-center text-success" > My Profile </h1></div>
+		  <div class="card-body">
+
+			  <div class="row">
+                              <div class="col-md-3">
+				       <div class="thumbnail">
+                                        
+                                             <img src="{{member.product.image.url}}" alt="Subscribed Product">
+                                              <div class="caption">
+                                                 <h4 class="text-info"> {{member.product.name}}</h4>
+                                              </div>
+                                       </div>
+			      </div>
+			      <div class="col-md-7">
+			              <div class="container">
+					      <div class="row">
+						     <table class="table table-hover">
+							     <thead>
+								     <tr>
+									     <th scope="col">Type</th>
+									     <th scope="col"> Detail </th>
+								     </tr>
+							     </thead>
+							     <tbody>
+								     <tr class="table-active">
+									     <th scope="row"> Name </th>
+									     <td> {{user.first_name}} {{user.last_name}}</td>
+								     </tr>
+								     <tr>
+									     <th scope="row"> Email </th>
+									     <td> {{user.email}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> Phone no </th>
+									     <td> {{user.profile.mobile}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> Adhaar no </th>
+									     <td> {{user.profile.adhaar}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> Address </th>
+									     <td> {{user.profile.address}}</td
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> District </th>
+									     <td> {{user.profile.district}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> State </th>
+									     <td> {{user.profile.state}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> PinCode </th>
+									     <td> {{user.profile.pincode}}</td>
+								     </tr>
+								     <tr class="table-active">
+									     <th scope="row"> Date Joined </th>
+									     <td>{{user.date_joined}}</td>
+								     </tr>
+
+
+							     </tbody>
+						     </table>
+					      </div>
+				      </div>
+			      </div>
+			      <div class="col-md-2">
+			      </div>
+			  </div>
+		  </div>
+	  </div>
 
 	  {% else %}
 	  <p> This is profile page </p>

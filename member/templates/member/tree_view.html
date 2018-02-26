@@ -18,8 +18,8 @@
                                 
 				    <div class="hv-item-parent">
                                            <div class="person">
-						   <img src="" alt="Main User">
-						   <p class="name"> {{member.user}} </p>
+						   <img src="{{user.profile.image.url}}" alt="Main User">
+						   <p class="name" style="background-color:orange;"> {{member.user}} </p>
 					   </div>
 				    </div>
 
@@ -30,7 +30,7 @@
 							  
 							    <div class="hv-item-parent">
 								    <div class="person">
-									    <img src="" alt="First">
+									    <img src="/media/user/none/no_img.png" alt="First">
 									    <p class="name"> {{ first_child }} </p>
 								    </div>
 							    </div>
@@ -38,8 +38,8 @@
 							    <div class="hv-item-children">
 								    {% for second_child in values %}
 								    <div class="hv-item-child">
-									    <div class="person">
-										    <img src="" alt="Second">
+									    <div class="person" >
+										    <img src="/media/user/none/no_img.png" alt="Second">
 										    <p class="name">{{ second_child }} </p>
 
 									    </div>
@@ -61,3 +61,7 @@
 
     {% endblock content %}
 
+    {% block javascript %}
+    
+    {{ block.super }}
+    {% endblock javascript %}

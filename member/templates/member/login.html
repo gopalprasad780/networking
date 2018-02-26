@@ -1,0 +1,10 @@
+{% extends 'adminlte/login.html' %}
+{% load static %}
+{% block form %}
+  <form method="post">
+	  {%csrf_token%}
+	  {{form}}
+  </form>
+  {%endblock %}
+
+  {% block logo_text %} <img src="{% static 'product/img/logo.png' %}" alt="SVCM"> {% endblock logo_text %}

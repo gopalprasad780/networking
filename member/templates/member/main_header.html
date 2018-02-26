@@ -1,0 +1,8 @@
+{% extends 'adminlte/lib/_main_header.html' %}
+{% load static %}
+{% block logo_href %} {% static 'product/img/logo.png' %} {%endblock%}
+
+{%block logo_text %} <b>SVCM</b> {%endblock%}
+{%block logo_text_small %} <b>SVCM</b> {%endblock%}
+{% block logout_url %}{% url 'member:logout' %} {%endblock%}
+

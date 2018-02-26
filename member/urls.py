@@ -17,15 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib.auth import views as auth_views
 from . import views
 app_name='member'
 urlpatterns = [
         path('', views.index, name='index'),
-        path('tree/<int:member_id>/', views.tree, name='tree'),
+        path('tree/', views.tree, name='tree'),
         path('edit/<int:member_id>/', views.edit, name='edit'),
         path('addmember/', views.addmember, name="addmember"),
         path('add/<int:member_id>/', views.add, name='add'),
+        path('login/', views.custom_login, name="login"),
+        path('redirectlogin/', auth_views.login, {'template_name':'member/login.html'}, name='redirectlogin'),
+        path('logout/', auth_views.logout, {'next_page':'/'}, name="logout"),
 
 
 ]
