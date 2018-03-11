@@ -6,49 +6,17 @@
 {%endblock stylesheet %}
 {% block banner %}
 <div class="container">
-	<h2> Samridhi Vikash Cooperative Association </h2>
+	<h2 class="text-uppercase text-info"> Samridhi Vikash Sales Cooperative </h2>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
-			<li data-target="#myCarousel" data-slide-to="1" > </li>
-			<li data-target="#myCarousel" data-slide-to="2" > </li>
-		</ol>
-
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="{% static 'product/img/firststep.jpg' %}" alt="First" style="width:100%;">
-				<div class="carousel-caption">
-					<h3> Start Your Journey </h3>
-					<p> Meet with Our Executive and Become a member </p>
-				</div>
-			</div>
-			<div class="item">
-				<img src="{% static 'product/img/secondstep.png' %}" alt="Second" style="width:100%;">
-				<div class="carousel-caption">
-					<h3 class="text-warning"> Build Your Member </h3>
-					<p class="text-warning"> Join Member Below you and Help them to complete their Chains </p>
-				</div>
-			</div>
-			<div class="item">
-				<img src="{% static 'product/img/thirdstep.jpg' %}" alt="Third" style="width:100%;">
-				<div class="carousel-caption">
-					<h3 class="text-info"> Pick up Your Prize </h3>
-					<p class="text-warning"> Its time to show others what you win </p>
-				</div>
+				<img src="{% static 'product/img/banner1.gif' %}" alt="First" style="width:100%; height:400px;">
 			</div>
 		</div>
 
 		<!-- left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"> </span>
-			<span class="sr-only">Previous </span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right"> </span>
-			<span class="sr-only"> Next </span>
-		</a>
 	</div>
 </div>
 
@@ -63,117 +31,28 @@
 	<hr/>
 
 	<h2 class="text-success"> Our Product </h2>
-	<hr/>
+	<ul class="nav nav-tabs">
+	{% for category in categories %}
+	<li class="nav-item">
+		<a class="nav-link" href="{% url 'category-detail' category.pk %}">{{category.name}}</a>
+	</li>
+          
+	{%endfor%}
+	</ul>
 </div>
-{% if categories  %}
 
-<!-- Looping over category models -->
-    {% for category in categories %}
-        
-         <div class="row">
-		 <h3 class="breadcrumb"> {{category.name}} </h3>
-         {% for product in category.product_set.all %}
-            <div class="col-md-2">
-		    <a href="{% url 'category-detail' category.pk %}" > <img src="{{product.image.url}}" class="img-thumbnail" alt="{{product.name}}">	   
-		   </a>
+<!-- Looping over product selected models -->
+         {% for product in products %}
+            <div class="col-md-3">
+		    <div class="card" style="width: 18rem;">
+			    <a href="{% url 'category-detail' product.category.pk %}" > <img class="card-img-top" src="{{product.image.url}}" width="200px" height="300px" alt="card Image top"> </a>
+			    <div class="card-body">
+				    <h5 class="card-title"> {{product.get_sub_category_display}} </h5>
+			    </div>
+		    </div>
 	    </div>
 {% endfor %}
 </div> <!-- end of product row -->
-{% endfor %}
-
-
-{%else %}
-<div class="col-md-3">
-           <div class="card mb-3 box-shadow">
-              <h3 class="card-header">Card header</h3>
-              <div class="card-body">
-                 <h5 class="card-title">Special title treatment</h5>
-                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              </div>
-              <img style="height: 200px; width: 100%; display: block;"
-               src="" alt="Card image">
-              <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-   
-              <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-              </div>
-              <div class="card-footer text-muted">
-                      2 days ago
-              </div>
-           </div>
- </div>
- <div class="col-md-3">
-           <div class="card mb-3 box-shadow">
-              <h3 class="card-header">Card header</h3>
-              <div class="card-body">
-                 <h5 class="card-title">Special title treatment</h5>
-                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              </div>
-              <img style="height: 200px; width: 100%; display: block;"
-               src="" alt="Card image">
-              <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-   
-              <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-              </div>
-              <div class="card-footer text-muted">
-                      2 days ago
-              </div>
-           </div>
- </div>
- <div class="col-md-3">
-           <div class="card mb-3 box-shadow">
-              <h3 class="card-header">Card header</h3>
-              <div class="card-body">
-                 <h5 class="card-title">Special title treatment</h5>
-                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              </div>
-              <img style="height: 200px; width: 100%; display: block;"
-               src="" alt="Card image">
-              <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-   
-              <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-              </div>
-              <div class="card-footer text-muted">
-                      2 days ago
-              </div>
-           </div>
- </div>
- <div class="col-md-3">
-           <div class="card mb-3 box-shadow">
-              <h3 class="card-header">Card header</h3>
-              <div class="card-body">
-                 <h5 class="card-title">Special title treatment</h5>
-                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              </div>
-              <img style="height: 200px; width: 100%; display: block;"
-               src="" alt="Card image">
-              <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-   
-              <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-              </div>
-              <div class="card-footer text-muted">
-                      2 days ago
-              </div>
-           </div>
- </div>
-  
- {% endif %}
- 
 
 {%endblock product %}
 

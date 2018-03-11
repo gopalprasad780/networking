@@ -5,8 +5,8 @@
 	    <div class="container">
 		    <h1 class="Jumbotron-heading"> {{object.name |title}} Detail  </h1>
 		    <p class="lead text-muted"> {{object.description}}</p>
-		    <p class="lead text-muted"> Membership Entry Fees : {{object.amount}}</p>
-		    <small class="text-muted"> Product prize amount will be within Rs {{object.min_range}}  to Rs {{object.max_range}}. </small> 
+		    <p class="lead text-muted"> Co-operation: {{object.amount}}</p>
+		    <small class="text-muted"> Gift worth upto  Rs {{object.min_range}}  to Rs {{object.max_range}}. </small> 
 		    </div>
     </section>
 
@@ -16,11 +16,16 @@
 <div class="container">
 <div class="row">
 {% for product in object.product_set.all %}
-   <div class="col-md-3">
-	   <div class="thumbnail">
-		   <img  src="{{product.image.url}}" alt="{{product.name}}" style="width:100%;">
-		   <div class="caption">
-			   <h3 class="text-info"> {{product.name}}</h3>
+   <div class="col-md-4">
+	   <div class="card" style="width: 18rem;">
+		   <img  class="card-img-top" src="{{product.image.url}}" alt="{{product.name}}" width="250px" >
+		   <div class="card-body">
+			   <h4 class="card-title"> {{product.get_sub_category_display}} </h4>
+			   <p class="card-text"> {{product.name}}</p>
+		   </div>
+		   <div class="card-body">
+			   <h4 class="text-success">Code: {{product.code}} </h4>
+			   <h4 class="text-warning">Currently {% if product.is_active %} Available {%else %} Unavailable {%endif%} </h4>
 		   </div>
 	   </div>
    </div>
