@@ -8,6 +8,7 @@ urlpatterns=[
         path('<int:pk>/', CategoryDetailView.as_view(), name="category-detail"),
         path('about/', TemplateView.as_view(template_name='product/about.html'),name='about'),
         path('terms/', TemplateView.as_view(template_name='product/terms.html'),name="terms"),
+        path('planb/', ListView.as_view(model=Category, template_name='product/planb.html'), name='planb'),
         ]
 
 

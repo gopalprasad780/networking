@@ -1,56 +1,218 @@
 {% extends 'product/base.html' %}
+{%block style %}
+.blinking{
+  animation:blinkingText 0.8s infinite;
+}
+
+@keyframes blinkingText{
+0%{color: #000; }
+49%{color: red; }
+50%{color: orange; }
+99%{color: blue; }
+100%{color: green;}
+}
+{%endblock style%}
+
+{%block bodytag %}
+LANG="en-US" TEXT="#5a5a5a" LINK="#d9230f" VLINK="#d9230f" BGCOLOR="#fcfcfc" DIR="LTR" STYLE="border: none; padding: 0in"
+{%endblock bodytag %}
 {% block banner %}
 <div class="jumbotron">
-<h1> Introduction  </h1>
-<hr/>
-<p> Shamridhi Vikash Sales Cooperative (formely SVSC) is established under Government rules and its Head Office is at Chandigarh,Punjab. </p>
-<p> SVSC is a highly potential, transparent, small invesment, fully cash back and free gift with bonus plan, that "goal in only two steps ahead". </p>
-<p> The company main motive is not to create group only but empowers and upgrade the status of middle class to have good for which they can't afford.</p>
-
-<h3 class="text-info"> Choose your group of gift from 'SVSC' product group list A </h3>
-<p class="text-success"> It is mandatory to  every member to register by <em> Form 'B' </em> and got your pin through sponser having unique SVSC PIN on  your cooperation money for your selected gift.</p>
-<p> On registration and getting PIN as a co-seller you become sponser for your chain </p>
-
-<h3 class="text-info"> How to Complete your chain? </h3>
-<p class="text-danger text-bold" >The sponser have to introduce 4 seller with pin and your all 4 seller also have to introduce 4 co-sellers each with pin. Your chain is complete. Simple !!</p>  <p class="text-success">(All pin holder have unique PIN and own password )</p>
-
-<p class="text-success"> This chain is also forwarded and  each PIN holder got seperately selected gift on chain completion </p>
-<h3> Cash back of your cooperation distribution </h3>
-<p> The cooperation of all co-sellers distributed as follows: </p>
-<small> Co-operation --> sponser --> seller --> company </small>
-
-
-<h3 class="text-info"> Claim of your Gift </h3>
-<p class="text-success"> In completion of your chain you have to send a detailed reports of your chain by filling the given <em> Form C </em>. After detail reporting and its verification, you be messaged and received your gift from SVSC nearest branch store. </p>
-
-<h3> Non-Active PIN Holder </h3>
-<ul> 
-	<li> If any co-seller not active and want to transfer his/her PIN to another, would be charged of Rs 500 and re-issued PIN in new given person as a new co-seller  on request by proper way</li>
-	
-	<li> If any co-seller  not active, On surrender of PIN, his/her PIN would be locked and only consolation money would be refunded to his/her bank account. Further, the company is not responsible for any loss and  claim for gift </li>
-	<li> Any PIN is active for only 3 months/ 90 days from date of issue. After 90 days he/she has to pay Rs 500 to extend for next 90 days validity </li>
-	<li> On failing of validity, only consolation money would be refunded to PIN holder's bank account. </li>
-
-</ul>
-<h3> Note: </h3>
-<ul>
-	<li> There is no agent or employee in SVSC. All members are seller or co-seller based on 'Sabka Sath Sabka Vikash'.  </li>
-	<li> It is restricted or your responsibility to share your SVSC PIN password to other for any loss.  </li>
-	<li> Any person may join SVSC with sound knowledge and above 18 years old in one or more time with same or other group of plan  </li>
-
-<li> Any member could not <em> interchange </em> his/her gift selection from another group of gifts. </li>
-<li>Any new member is free to choose his/her any gift from the sponser group of gifts. </li>
-<li> A sponser introduce only those seller who also like or choose the same gift group from  given <b> product list group A </b>  </li>
-<li>  The grade of  <b> Sponser- Seller - Co-Seller </b> is  upgraded gradually as
-	<ul>
-		<li><small> Co-seller got pin > sponser </small> </li>
-		<li><small> Sponser introduce 4 new member-pin   > seller </small> </li>
-		<li><small> seller introduce 4 new member-pin > co-seller </small></li>
-	</ul>
-</li>
-<li> No one member be thritened or suppressed to join SVSC and product group of gift-selection </li>
-<li> Without completion of chain there is no claim of gift. </li>
-
+<H1 ALIGN=CENTER><FONT COLOR="#009900"><SPAN STYLE="background: #ffffff"><!--/.nav-collapse --></SPAN></FONT><FONT COLOR="#009900"><SPAN STYLE="background: #ffffff">Introduction</SPAN></FONT>
+</H1>
+<HR>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P>         <FONT COLOR="#ff0000"> <FONT SIZE=3 STYLE="font-size: 13pt"><FONT SIZE=4><SPAN STYLE="font-weight: normal">Shamridhi
+			Vikash Sales Cooperative</SPAN></FONT></FONT><B> (formely SVSC) is
+			established under Government rules and its Head Office is at
+			Mohali,(Punjab). </B></FONT>
+			</P>
+			<P><FONT SIZE=3 STYLE="font-size: 13pt"><B><FONT COLOR="#800000">SVSC
+			is a highly potential, transparent, small invesment, fully cash
+			back and free gift with bonus plan, that &quot;goal in only two
+			steps ahead&quot;</FONT>. </B></FONT>
+			</P>
+			<P STYLE="margin-bottom: 0in"><FONT COLOR="#800000"><FONT SIZE=3 STYLE="font-size: 13pt">The
+			company main motive is not to create group only but impowers and
+			upgrade the status of middle class too have good for which they
+			can't afford.</FONT></FONT><FONT COLOR="#ffffff"><FONT SIZE=3 STYLE="font-size: 13pt">at</FONT></FONT><FONT COLOR="#ffffff">e
+			grou</FONT></P>
+	      <p class="blinking"><b> SVSC </b> have not the moto to selling the product of reputed companies in less or reduced price but it is ony the <em>Business Plan</em>. Products are only given on <em>SVSC chain completion</em>. SVSC chain completion plan is nothing but only subject matter of solicitation.  <p>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#1c1c1c"><B><FONT SIZE=3>Anybody
+				male/female may join SVSC with sound knowledge and above 18 years
+				old</FONT></B></FONT></P>
+				<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>Any person may
+				join SVSC PLAN one or more time with same or another given
+				products group of Gift selection, </B></FONT>
+				</P>
+				<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>There is no
+				agent or employee in SVSC. All members are seller or co-seller
+				based on '<FONT COLOR="#ff0000"><FONT SIZE=4><I><SPAN STYLE="background: #66ff00">Sabka
+				Sath Sabka Vikash</SPAN></I></FONT></FONT><FONT COLOR="#ff0000"><FONT SIZE=4>'.</FONT></FONT>
+				</B></FONT>
+				</P>
+				<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>A sponser
+				introduce only those seller/ co seller who also like or choose
+				among the same group of Gift as given in Product group list A </B></FONT>
+				</P>
+				<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>The grade of<FONT COLOR="#ffffff"><SPAN STYLE="background: #ffffff">
+				</SPAN></FONT><FONT COLOR="#00cc00"><SPAN STYLE="background: #ffffff">sponser:</SPAN></FONT>---&gt;<FONT COLOR="#009900">
+				</FONT><FONT COLOR="#ff3300">Seller</FONT><FONT COLOR="#009900">
+				</FONT>---&gt;<FONT COLOR="#0000ff"> Co-Seller</FONT> is upgraded
+				gradually as </B></FONT>
+				</P>
+				<UL>
+					<LI><P STYLE="margin-bottom: 0in"><B><SPAN STYLE="background: #ffffff"><FONT COLOR="#3399ff"><FONT SIZE=3 STYLE="font-size: 13pt">Co-seller
+					got pin ---&gt;</FONT></FONT><FONT SIZE=3> </FONT><FONT COLOR="#00cc00"><FONT SIZE=3>sponser
+					</FONT></FONT></SPAN></B>
+					</P>
+					<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>sponser
+					Introduces 4 ---&gt; new seller with PIN Nos. </B></FONT>
+					</P>
+					<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B><FONT COLOR="#ff0000">Every
+					4 -new sellers introduces ---&gt;</FONT> <FONT COLOR="#0000ff">4
+					new co-sellers with PIN Nos</FONT>.</B></FONT></P>
+				</UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=3><B>No one member
+				be threatened or suppressed to join SVSC and same products of
+				Gift group selection,.</B></FONT></P>
+				<LI><P><FONT COLOR="#800000"><FONT COLOR="#ff0000">&ldquo;<FONT SIZE=4><B>Without
+				completion of their chain&rdquo; there is no gift claim.</B></FONT></FONT><FONT SIZE=3><B>
+				</B></FONT></FONT>
+				</P>
+			</UL>
+		</TD>
+	</TR>
+</TABLE>
+<H4 CLASS="western" ALIGN=CENTER STYLE="page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#ff3300"><FONT SIZE=4 STYLE="font-size: 15pt"><I><B><SPAN STYLE="background: #ffffff">How
+to get your pin ? </SPAN></B></I></FONT></FONT>
+</H4>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P><BR><BR>
+			</P>
+			<P><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>After
+			selection of </B></FONT></FONT><FONT COLOR="#3333ff"><FONT SIZE=3 STYLE="font-size: 13pt"><B>group
+			of 'Gift Item'</B></FONT></FONT><FONT COLOR="#ff99ff"><FONT SIZE=3 STYLE="font-size: 13pt"><B>,</B></FONT></FONT><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>
+			It is mandatory for every member to register through </B></FONT></FONT><EM><FONT COLOR="#ff3333"><FONT SIZE=3 STYLE="font-size: 13pt"><B>Form
+			'B'</B></FONT></FONT></EM><EM><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>
+			</B></FONT></FONT></EM><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>and
+			get your PIN number by a co-operaton money through </B></FONT></FONT><FONT COLOR="#0000ff"><FONT SIZE=3 STYLE="font-size: 13pt"><B>sponser
+			having unique SVSC PIN </B></FONT></FONT><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>of
+			</B></FONT></FONT><FONT COLOR="#0000ff"><FONT SIZE=3 STYLE="font-size: 13pt"><B>same
+			'' selected Gift group</B></FONT></FONT><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B>
+			once&quot;.</B></FONT></FONT></P>
+			<P><FONT COLOR="#ff99ff"><FONT SIZE=3 STYLE="font-size: 13pt"><B>On
+			registration and getting PIN as a co-seller you become sponser for
+			your chain.</B></FONT></FONT></P>
+			<P><FONT COLOR="#c5000b"><FONT SIZE=3 STYLE="font-size: 13pt"><B><FONT SIZE=3>It
+			is restricted and your responsibility to share your SVSC PIN and
+			Password to others..</FONT> </B></FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western" ALIGN=CENTER><FONT COLOR="#009900"><U>How to
+Complete your chain-- PLAN ?</U></FONT> 
+</H3>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P><FONT COLOR="#c5000b"><FONT SIZE=3><I><B><FONT COLOR="#ff3300"><FONT SIZE=4>The
+			sponser have to introduce 4 seller with PIN</FONT></FONT><FONT SIZE=4>
+			and </FONT><FONT COLOR="#0000ff"><FONT SIZE=4>your all 4 sellers
+			have to introduces 4 new co-sellers each with PIN </FONT></FONT><FONT COLOR="#ff66ff"><FONT SIZE=4>(all
+			having their own passwords) </FONT></FONT><FONT SIZE=4>Your chain
+			is complete.</FONT> </B></I></FONT></FONT>
+			</P>
+			<P><FONT COLOR="#cc0000"><FONT SIZE=3><B>This chain is also
+			forwarded and got each PIN holder seperately selected gift on
+			their chain completion .</B></FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western" ALIGN=CENTER><FONT COLOR="#009900"><U>Your
+co-operation distribution </U></FONT>
+</H3>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P ALIGN=CENTER><FONT COLOR="#c5000b"><FONT SIZE=3><B>The
+			co-operation Money of all co-sellers distributed as follows: </B></FONT></FONT>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#c5000b"><FONT SIZE=3><B><FONT COLOR="#cc00cc">Co-operation
+			Money</FONT>---&gt; <FONT COLOR="#0000ff">sponser-</FONT> --&gt;
+			<FONT COLOR="#ff0000">seller</FONT> ---&gt; company </B></FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western" ALIGN=CENTER><FONT COLOR="#009900"><U>Claim of
+your Gift </U></FONT>
+</H3>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<P><FONT SIZE=3><B>In</B></FONT><FONT COLOR="#0000ff"><FONT SIZE=3><B>
+			completion of your chain</B></FONT></FONT><FONT SIZE=3><B> you
+			have to send a</B></FONT><FONT COLOR="#0000ff"><FONT SIZE=3><B>
+			detail report of your chain</B></FONT></FONT><FONT SIZE=3><B> by
+			filling the given </B></FONT><EM><FONT COLOR="#cc0000"><FONT SIZE=3><B>Form
+			C </B></FONT></FONT></EM><FONT COLOR="#cc0000"><FONT SIZE=3><B>.
+			</B></FONT></FONT><FONT SIZE=3><B>After</B></FONT><FONT COLOR="#0000ff"><FONT SIZE=3><B>
+			detail reporting and its verification</B></FONT></FONT><FONT SIZE=3><B>,
+			you messaged and  receive your gift from selected nearest SVSC
+			branch store &ndash; </B></FONT><FONT SIZE=3><B><SPAN STYLE="background: #99ff33">Ranchi
+			/ Hazaribagh / Tata / Dhanbad / Bokaro</SPAN></B></FONT><FONT SIZE=3><B>.
+			</B></FONT>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western" ALIGN=CENTER><FONT COLOR="#ff00ff"><U><SPAN STYLE="background: transparent">Non-Active
+PIN Holder</SPAN> </U></FONT>
+</H3>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP>
+			<UL>
+				<LI VALUE=1><P STYLE="margin-bottom: 0in; font-weight: normal"><FONT COLOR="#c5000b"><FONT SIZE=3>If
+				any <FONT COLOR="#0000ff">co-seller/Sponser not active</FONT> and
+				he/she want to transfer their PIN to another person, He/She have
+				to be charged of<FONT COLOR="#0000ff"> Rs 500</FONT> and
+				re-issued PIN to the new given person <FONT COLOR="#0000ff">as a
+				new co-seller/sponser </FONT>on requesting of his/her <FONT COLOR="#0000ff">co-seller
+				/ sponser.</FONT></FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0in; font-weight: normal"><FONT COLOR="#c5000b"><FONT SIZE=3><FONT COLOR="#0066ff">If
+				any co-seller / sponser do not want to act in SVSC PLAN and
+				he/she have submited their PIN to the SVSC</FONT> by <FONT COLOR="#ff0000">FORM
+				D</FONT>, <FONT COLOR="#ff0000">only consolation money would be
+				refunded</FONT> and his/her PIN will be locked. <FONT COLOR="#ff0000">The
+				company is not responsible for any loss and never be claimed for
+				their gift .</FONT></FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0in; font-weight: normal"><FONT COLOR="#c5000b"><FONT SIZE=3>A
+				PIN is active for only<FONT COLOR="#ff0000"> 3 months/ 90 days
+				from the date of issue</FONT>. After 90 days within a week he/she
+				has to pay Rs 300 to extend for next 90 days PIN validity.</FONT></FONT></P>
+				<LI><P><FONT COLOR="#ff0000"><FONT SIZE=4><B>On failing of PIN
+				validity, only consolation money would be refunded to PIN holder 
+				in their given Bank A/C.</B></FONT></FONT></P>
+			</UL>
+		</TD>
+	</TR>
+</TABLE>
+ 
 
 </div>
 

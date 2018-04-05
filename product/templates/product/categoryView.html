@@ -1,4 +1,30 @@
 {% extends 'product/base.html' %}
+<!-- Custom CSS for Category image -->
+ {% block style %}
+
+ .photo {
+   position: inherit;
+   float: left;
+   width: 250px;
+   height: 444px;
+   background-postion: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: contain;
+}
+.custom-card-text{
+   max-height : 30px;
+   line-height: 15px;
+   white-space: wrap;
+   overflow: hidden;
+}
+
+.custom-card-text:hover {
+   max-height: initial;
+}
+
+
+{% endblock style %}
+
 {% block banner %}
 <div class="container">
     <section class="jumbotron text-center">
@@ -6,7 +32,6 @@
 		    <h1 class="Jumbotron-heading"> {{object.name |title}} Detail  </h1>
 		    <p class="lead text-muted"> {{object.description}}</p>
 		    <p class="lead text-muted"> Co-operation: {{object.amount}}</p>
-		    <small class="text-muted"> Gift worth upto  Rs {{object.min_range}}  to Rs {{object.max_range}}. </small> 
 		    </div>
     </section>
 
@@ -17,11 +42,12 @@
 <div class="row">
 {% for product in object.product_set.all %}
    <div class="col-md-4">
-	   <div class="card" style="width: 18rem;">
-		   <img  class="card-img-top" src="{{product.image.url}}" alt="{{product.name}}" width="250px" >
+	   <div class="card" style="width: 20rem;">
+                 <div class="photo" style="background-image:url('{{product.image.url}}');" title="{{product.name}}"> </div>
+		   <!-- <img  class="card-img-top" src="{{product.image.url}}" alt="{{product.name}}" width="300px"> -->
 		   <div class="card-body">
 			   <h4 class="card-title"> {{product.get_sub_category_display}} </h4>
-			   <p class="card-text"> {{product.name}}</p>
+			   <p class="custom-card-text"> {{product.name}}</p>
 		   </div>
 		   <div class="card-body">
 			   <h4 class="text-success">Code: {{product.code}} </h4>

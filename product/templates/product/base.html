@@ -20,9 +20,14 @@
     {% block stylesheet %} 
 
     {% endblock stylesheet %}
+   <style>
+   {% block style %}
+   
+    {% endblock style %}
+   </style>
   </head>
 
-  <body>
+  <body {% block bodytag %} {%endblock bodytag %}>
  
 
 
@@ -30,7 +35,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
 	      <a class="navbar-brand" href="{% url 'index' %}">
-		      <img src="{% static 'product/img/logo.png' %}" alt="SVCA" width="50" height="50" >
+		      <img src="{% static 'product/img/logo.png' %}" alt="SVCA" width="70" height="70" >
 	      </a>
 	  <ul class='nav navbar-nav navbar-right'>
 		  <li><a href='{% url "member:login" %}'> Login/Register </a>  </li>
@@ -50,31 +55,13 @@
     
 
  <div class="container">
-
+ 
         {% block product %} 
 
-        <!-- Example row of columns -->
-        <div class="card-deck mb-3 text-center">
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          
-        </div>
           {% endblock product %}
 
-        
+</div>
+<!--/body -->     
 
 
 </div> <!-- /container -->
@@ -100,9 +87,10 @@
           <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading">Your Simple Plan ! <span class="text-muted"></span></h2>
 	    <em> New Registration with 4 pin > Join 4 new seller with pin > Each seller with 4 co-seller. </em>
-            <p class="lead"> Got pin registration and firstly just introduce 4 sellers with pin. Secondly, all 4 sellers also introduce 4 co-sellers with pin and selected gift.  And your Plan chain is complete. Isn't very simple</p>
-	    <p class="lead">  Receive bonus and selected gift free from nearest authorize SVSC store. </p>
-	    <p class="lead"> This chain plan is also forwared and got each pin holder seperately selected gift free on chain completion</p>
+        <p class="lead"> Select group of Gift Item from product list A </p>
+            <p class="lead"> Got pin registration and firstly just introduce 4 sellers with pin. Secondly, all 4 sellers also introduce 4 co-sellers with pin and selected gift. </p>
+	    <p class="lead">Your chain plan is complete. Isn't very simple ! Now  Receive incentives and selected gift free from nearest authorize SVSC branch store. </p>
+	    <p class="lead"> This chain plan is also forwared and for each pin holder seperately selected gift free on chain completion</p>
           </div>
           <div class="col-md-5 order-md-1">
 		  <img width="400px" src="{% static 'product/img/second.gif' %}" alt="Generic placeholder image">
@@ -116,28 +104,51 @@
       </div><!-- /.container -->
 <hr>
 {% endblock features %}
+<!-- Footer Links -->
+<footer class="footer" style="background: #000;">
+<div class="container text-center text-md-left">
+    <!-- Footer Links -->
+     <div class="row text-center text-md-left mt-3 pb-3">
+       
+           <!-- First column -->
+           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <img class="mb-2" src="{% static 'product/img/logo.png' %}" alt="" width="200px" >
+           </div>
+          <!--/ First column -->
 
- <!-- Footer -->
- <div class="container"> 
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-          <div class="col-md-6">
-		  <img class="mb-2" src="{% static 'product/img/logo.png' %}" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-          </div>
-	  <div class="col-md-6">
-		  <a class="text-muted" href="{% url 'about' %}" > About Us </a>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Locations</a></li>
-	      <li><a class="text-muted" href="{% url 'terms' %}">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
-      </div>
+           <!-- Second column -->
+           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+               <h6 class="text-uppercase mb-4 font-weight-bold"> FORMS </h6>
+               <p><a href="{% static 'product/formA.pdf' %}"> Form A </a> </p>
+               <p><a href="{% url 'planb' %}"> Form B </a> </p>
+               <p><a href="{% static 'product/formC.pdf' %}"> Form C </a> </p>
+           </div>
+           <!-- Third column -->
+           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+               <h6 class="text-uppercase mb-4 font-weight-bold"> SVSC links </h6>
+              <p> <a href="{% url 'index'%}"> Home  </a></p>
+               <p><a href="{% url 'about' %}"> About Us </a></p>
+               <p><a href="{% url 'terms' %}"> Terms & Condition</a></p>
+              </div>
+              <!--/ third column -->
+
     
-    <!-- /footer -->
+
+              <!-- Fourth column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                  <h6 class="text-uppercase mb-4 font-weight-bold"> Contact </h6>
+                 <p> <span class="fa fa-home"></span> D-185, Phase 8B, Mohali, Punjab. </p>
+                 <p> Pin - 160055 </p>
+                 <p> <i class="fa fa-enveloper mr-3"></i> admin@shamridhivikashsalescooperative.co.in</p>
+               </div>
+
+               <!--/Fourth column -->
+ 
+</div>
+
+</div>
+</footer>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

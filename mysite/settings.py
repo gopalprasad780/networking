@@ -20,19 +20,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&7-7of(=+#-ejd)#booqd!e%@ep7$=lg(67)=j2gy!h$hxl!u9'
+SECRET_KEY = '&7-7of(=+#-ejd)#boogopalqd!e%@ep7$=lg(67)=j2gy!h$hxl!u9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.pythonanywhere.com','.ngrok.io','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['.shamridhivikashsalescooperative.co.in','localhost','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-        'member',
-        'product',
+       'member',
+       'product',
         'bootstrap_themes',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'svsc',
+        'USER': 'django_user',
+        'PASSWORD':'Admin@123',
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
 
@@ -126,6 +130,7 @@ STATIC_URL = '/static/'
 STATIC_FILEDIRS=[
         os.path.join(BASE_DIR, 'static'),
         ]
+STATIC_ROOT=os.path.join(BASE_DIR, '../static/')
 MEDIA_ROOT=os.path.join(BASE_DIR, 'image')
 MEDIA_URL='/media/'
 

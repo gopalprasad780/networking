@@ -22,6 +22,17 @@ class Category(models.Model):
     def get_fields(self):
         return "name, description, amount, image, min_range, max_range, seller, sponser, consolation"
 
+    def get_company(self):
+        return (self.amount -(self.seller + self.sponser))
+   
+    def get_incentive(self):
+        if self.seller > 1500:
+            return 2900
+        elif self.seller > 1100:
+            return 2100
+        else:
+            return 1300
+
 
 
 

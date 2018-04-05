@@ -1,0 +1,49 @@
+{% extends 'product/base.html' %}
+{% load static %}
+{% block stylesheet %}
+ <script src="{% static 'product/js/jquery/jquery.min.js' %}"> </script>
+ <script src="{% static 'product/js/boostrap.min.js' %}"> </script>
+{%endblock stylesheet %}
+{% block banner %}
+<div class="container">
+	<h2 class="text-uppercase text-center text-info"><b>Cooperation Money Back Plan (B) </b></h2>
+<table class="table table-hover" style="border: 2px solid green;">
+
+<thead> 
+   <tr style="background-color: green;">
+      <th ><font color="white"> Group </font> </th>
+      <th><font color="white"> Gift item worth upto </font></th>
+      <th><font color="white"> Cooperation Money (Rs) </font></th>
+      <th><font color="white"> Seller Rs<small>(x4)</small> </font></th>
+      <th> <font color="white"> Sponser Rs<small>(x16)</small></font> </th>
+     <th> <font color="white">Company Rs </font> </th>
+     <th> <font color="white">Total Incentive + Gift</font></th>
+      <th> <font color="white">Consolation </font> </th>
+   </tr>
+</thead>
+
+{% for a in object_list %}
+ <tr class="table-secondary">
+  <td>{{a.name}}</td>
+  <td> {{a.max_range}}/- </td>
+  <td> {{a.amount }}/- </td>
+  <td> {{a.seller }}/- </td>
+  <td> {{a.sponser }}/- </td>
+ <td>  {{a.get_company }}/- </td>
+  <td> {{a.get_incentive}}/- </td>
+   <td> {{a.consolation}}/- </td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+{% endblock banner %}
+{% block features %}
+
+{% endblock features %}
+
+
+
+
+ 
